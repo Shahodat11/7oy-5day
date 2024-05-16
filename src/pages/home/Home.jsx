@@ -1,0 +1,19 @@
+import React, { useEffect, useState } from 'react'
+import Main from "../../components/main/Main"
+import Products from '../../components/products/Products'
+import { useGetProductsQuery } from '../../context/productApi'
+import MainTop from '../../components/mainTop/MainTop'
+
+const Home = () => {
+  let {data, isLoading, error, isError} = useGetProductsQuery()
+  console.log(data?.products);
+  return (
+    <div>
+      <Main/>
+      <Products data={data?.products}/>
+      <MainTop/>
+    </div>
+  )
+}
+
+export default Home
